@@ -1,6 +1,6 @@
 package ru.netology.web.steps;
 
-import cucumber.api.PendingException;
+
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Пусть;
 import cucumber.api.java.ru.Тогда;
@@ -31,35 +31,26 @@ public class MySteps {
         val verificationCode = DataHelper.getVerificationCodeFor(authInfo);
         scenario.setCurrentPage(verificationPage.validVerify(verificationCode));
         scenario.getCurrentPage().appeared();
-        throw new PendingException();
     }
 
 
 
     @Когда("^он переводит \"([^\"]*)\" рублей с карты с номером \"([^\"]*)\" на свою \"([^\"]*)\" карту со страницы перевода средств;$")
-
     public void transferMoneyFromSecondToFirstCard(String amount, String fromCard, String firstCard) {
-        AkitaScenario scenario = AkitaScenario.getInstance();
-        scenario.setCurrentPage(page(TransferPage.class));
+        val dashboardPage = (DashboardPage) scenario.getCurrentPage().appeared();
+        scenario.setCurrentPage(dashboardPage.depositToFirstCard());
         val transferPage =(TransferPage)scenario.getCurrentPage().appeared();
-        transferMoneyFromSecondToFirstCard("5000",fromCard, firstCard);
+        new TransferPage().transferMoneyFromSecondCard();
         scenario.setCurrentPage(page(DashboardPage.class));
         scenario.getCurrentPage().appeared();
-        throw new PendingException();
     }
 
 
     @Тогда("^баланс его \"([^\"]*)\" карты из списка на главной странице должен стать \"([^\"]*)\" рублей\\.$")
-    public void getCardBalance(String firstCardBalance, String secondCardBalance) throws Throwable {
-        AkitaScenario scenario = AkitaScenario.getInstance();
-        scenario.setCurrentPage(page(DashboardPage.class));
-        getCardBalance(firstCardBalance, secondCardBalance);
-        scenario.getCurrentPage().appeared();
+    public void getCardBalance(String firstCardNumber, String secondCardNumber) {
+        val dashboardPage = (DashboardPage)scenario.getCurrentPage().appeared();
+        val firstCardBalance = dashboardPage.getCardBalance(firstCardNumber);
+        val secondCardBalance = dashboardPage.getCardBalance(secondCardNumber);
 
-
-        throw new PendingException();
     }
-
-
-
 }
