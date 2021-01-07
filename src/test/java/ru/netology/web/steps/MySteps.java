@@ -51,6 +51,5 @@ public class MySteps {
         val dashboardPage = (DashboardPage)scenario.getCurrentPage().appeared();
         val firstCardBalance = dashboardPage.getCardBalance(firstCardNumber);
         val secondCardBalance = dashboardPage.getCardBalance(secondCardNumber);
-
     }
 }
