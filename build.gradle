@@ -16,7 +16,7 @@ plugins {
 
 apply plugin:'ru.alfalab.cucumber-parallel-test'
 
-generateRunner.glue = ["ru.alfabank.steps", "ru.netology.web.step"]
+generateRunner.glue = ["ru.alfabank.steps", "ru.netology.web.steps"]
 
 group 'ru.netology'
 version '1.0-SNAPSHOT'

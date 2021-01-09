@@ -6,21 +6,21 @@ import ru.alfabank.alfatest.cucumber.annotations.Name;
 import ru.alfabank.alfatest.cucumber.api.AkitaPage;
 import ru.netology.web.data.DataHelper;
 
-import static com.codeborne.selenide.Condition.visible;
+
 import static com.codeborne.selenide.Selenide.page;
 
 @Name("Страница подтверждения входа")
 public class VerificationPage extends AkitaPage {
     @Name("Код из смс")
-    @FindBy(css="[data-test-id=code] input")
+    @FindBy(css = "[data-test-id=code] input")
     private SelenideElement codeField;
 
     @Name("Продолжить")
-    @FindBy (css ="[data-test-id=action-verify]")
+    @FindBy(css = "[data-test-id=action-verify]")
     private SelenideElement verifyButton;
 
     public VerificationPage() {
-        codeField.shouldBe(visible);
+
     }
 
     public DashboardPage validVerify(DataHelper.VerificationCode verificationCode) {

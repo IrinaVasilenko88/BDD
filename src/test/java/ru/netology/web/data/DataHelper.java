@@ -46,10 +46,12 @@ public class DataHelper extends AkitaPage {
     public static CardInfo getSecondCardInfo() {
         return new CardInfo("5559 0000 0000 0002");
     }
+
     @Value
     public static class TransferAmount {
         private int cardBalance;
     }
+
     public int getTransferAmount(int cardBalance) {
         Random random = new Random();
         int transferSum = random.nextInt(cardBalance);

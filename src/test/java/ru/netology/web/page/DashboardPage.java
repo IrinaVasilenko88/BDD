@@ -34,7 +34,6 @@ public class DashboardPage extends AkitaPage {
     private final String balanceFinish = " р.";
 
     public DashboardPage() {
-        heading.shouldBe(visible);
     }
 
     private int extractBalance(String text) {
