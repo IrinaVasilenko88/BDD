@@ -8,28 +8,31 @@ buildscript {
         classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.3.2'
         classpath 'ru.alfalab.gradle:cucumber-reporting-gradle-plugin:0.1.0'
         classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.3.1'
-        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.10.0'}
+        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.10.0'
+    }
 }
 plugins {
     id 'java'
-    id 'io.freefair.lombok' version '5.0.0'}
+    id 'io.freefair.lombok' version '5.0.0'
+}
 
-apply plugin:'ru.alfalab.cucumber-parallel-test'
+apply plugin: 'ru.alfalab.cucumber-parallel-test'
 
 generateRunner.glue = ["ru.alfabank.steps", "ru.netology.web.steps"]
 
 group 'ru.netology'
 version '1.0-SNAPSHOT'
-sourceCompatibility =11
-compileJava.options.encoding ="UTF-8"
-compileTestJava.options.encoding ="UTF-8"
+sourceCompatibility = 11
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
 
 repositories {
     jcenter()
     mavenCentral()
 }
 dependencies
-        {  testImplementation 'ru.alfabank.tests:akita:4.1.3'
+        {
+            testImplementation 'ru.alfabank.tests:akita:4.1.3'
             testImplementation 'com.codeborne:selenide:5.11.1'
 
         }
