@@ -8,12 +8,13 @@ import ru.alfabank.alfatest.cucumber.annotations.Name;
 import ru.alfabank.alfatest.cucumber.api.AkitaPage;
 import ru.alfabank.alfatest.cucumber.api.AkitaScenario;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.page;
 
 @Name("Страница со списком карт")
 public class DashboardPage extends AkitaPage {
     private final AkitaScenario scenario = AkitaScenario.getInstance();
+
     @Name("Заголовок")
     @FindBy(css = "[data-test-id=dashboard]")
     private SelenideElement heading;
