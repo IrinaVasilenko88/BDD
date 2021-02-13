@@ -26,5 +26,6 @@ git clone https://github.com/IrinaVasilenko88/BDD.git
 2. Открыть склонированный проект в Intellij IDEA
 3. Открыть в терминале каталог ```artifacts```
 4. Для запуска приложения ввести команду ```java -jar app-ibank-build-for-testers.jar```
-5. Открыть файл ```BDD/src/test/resources/features/Логин и перевод средств с карты на карту.feature```
-6. Перейти по шагам.
+5. Для запуска в браузере ввести ссылку http://localhost:9999/
+6. Открыть файл ```BDD/src/test/resources/features/Логин и перевод средств с карты на карту.feature```
+7. Перейти по шагам.
